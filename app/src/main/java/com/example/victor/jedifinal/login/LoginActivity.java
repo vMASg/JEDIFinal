@@ -1,5 +1,6 @@
 package com.example.victor.jedifinal.login;
 
+import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,12 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.victor.jedifinal.Injector;
 import com.example.victor.jedifinal.R;
 
 //  http://code.tutsplus.com/tutorials/creating-a-login-screen-using-textinputlayout--cms-24168
-public class LoginActivity extends AppCompatActivity implements LoginContract.View, View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements LoginContract.View, View.OnClickListener, RegisterContract.View {
 
     private LoginContract.Presenter presenter;
+    private RegisterContract.Presenter regPresenter;
 
     private TextInputLayout emailIL, passwordIL;
 
@@ -21,8 +24,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        TODO: Tech. Debt: use a dependency injection library
-        presenter = new LoginPresenter(this);
+        presenter = Injector.getLoginPresenter(this);
+        regPresenter = Injector.getRegisterPresenter(this);
 
         emailIL = (TextInputLayout) findViewById(R.id.login_email_wrapper);
         passwordIL = (TextInputLayout) findViewById(R.id.login_password_wrapper);
@@ -45,13 +48,22 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void navigateHome() {
+    public void displayUserExists() {
 //        TODO: implement method
     }
 
     @Override
-    public void navigateRegistration() {
+    public void displaySuccessful() {
 //        TODO: implement method
+    }
+
+    @Override
+    public void navigateHome(String email) {
+//        TODO: implement method
+        SharedPreferences settings = getSharedPreferences("userActive", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("userName", email);
+        editor.apply();
     }
 
     @Override

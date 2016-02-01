@@ -40,7 +40,7 @@ public class LoginPresenterTest {
         MockitoAnnotations.initMocks(this);
 
         // Get a reference to the class under test
-        Injector.setUsersServiceAPI(usersServiceAPI);
+        Injector.usersServiceAPI = usersServiceAPI;
         mLoginPresenter = new LoginPresenter(loginView);
     }
 
@@ -73,6 +73,26 @@ public class LoginPresenterTest {
         when(mockedUser.checkPassword("password")).thenReturn(true);
         when(usersServiceAPI.findUser("user@somewhere.com")).thenReturn(mockedUser);
         mLoginPresenter.logUserIn("user@somewhere.com", "password");
-        verify(loginView).navigateHome();
+        verify(loginView).navigateHome("user@somewhere.com");
+    }
+
+    @Mock
+    private RegisterContract.View registrationView;
+
+    @Test
+    public void loginPresenterCallsUserExists() {
+        LoginPresenter registerPresenter = new LoginPresenter(registrationView);
+        when(usersServiceAPI.findUser("user@somewhere.com")).thenReturn(mockedUser);
+        registerPresenter.registerUser("user@somewhere.com", "password");
+        verify(registrationView).displayUserExists();
+    }
+
+    @Test
+    public void loginPresenterCallsSuccessfulAndNavigateTo() {
+        LoginPresenter registerPresenter = new LoginPresenter(registrationView);
+        when(usersServiceAPI.findUser("user@somewhere.com")).thenReturn(null);
+        registerPresenter.registerUser("user@somewhere.com", "password");
+        verify(registrationView).displaySuccessful();
+        verify(registrationView).navigateHome("user@somewhere.com");
     }
 }

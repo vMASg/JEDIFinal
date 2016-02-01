@@ -12,9 +12,8 @@ public interface LoginContract {
 
         void displayBadPassword();
 
-        void navigateHome();
+        void navigateHome(String email);
 
-        void navigateRegistration();
     }
 
     interface Presenter {
