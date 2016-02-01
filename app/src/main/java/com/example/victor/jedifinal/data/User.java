@@ -30,8 +30,11 @@ public class User {
         return hashedPassw;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
     public boolean checkPassword(String password) {
         return Hashing.sha1().hashString(password, Charset.defaultCharset()).toString().equals(hashedPassw);
     }
-
 }

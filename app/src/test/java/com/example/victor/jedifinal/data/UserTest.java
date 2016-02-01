@@ -18,15 +18,20 @@ public class UserTest {
     }
 
     @Test
+    public void getUserNameReturnsUserName() {
+        assertEquals("pepito", user.getUserName());
+    }
+
+    @Test
     public void compareSamePassword() {
         user.setPassword("longAndHardToGuessPasswordXxx");
-        assertEquals(true, user.checkPassword("longAndHardToGuessPasswordXxx"));
+        assertTrue(user.checkPassword("longAndHardToGuessPasswordXxx"));
     }
 
     @Test
     public void compareDifferentPasswords() {
         user.setPassword("longAndHardToGuessPasswordXxx");
-        assertEquals(false, user.checkPassword("differentPassword"));
+        assertFalse(user.checkPassword("differentPassword"));
     }
 
 }

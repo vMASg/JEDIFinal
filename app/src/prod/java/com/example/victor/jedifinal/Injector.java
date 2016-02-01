@@ -1,6 +1,7 @@
 package com.example.victor.jedifinal;
 
 import com.example.victor.jedifinal.data.UsersServiceAPI;
+import com.example.victor.jedifinal.data.UsersServiceAPIEndPoint;
 import com.example.victor.jedifinal.data.UsersServiceAPIImpl;
 import com.example.victor.jedifinal.login.LoginContract;
 import com.example.victor.jedifinal.login.LoginPresenter;
@@ -21,5 +22,9 @@ public class Injector {
 
     public static RegisterContract.Presenter getRegisterPresenter(RegisterContract.View view) {
         return new LoginPresenter(view);
+    }
+
+    public static UsersServiceAPIEndPoint getUsersServiceAPIEndPoint() {
+        return new UsersServiceAPIEndPoint();
     }
 }
