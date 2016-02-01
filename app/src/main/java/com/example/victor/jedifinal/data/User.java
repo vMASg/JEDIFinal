@@ -5,4 +5,7 @@ package com.example.victor.jedifinal.data;
  */
 public class User {
 
+    public boolean checkPassword(String password) {
+        return false;
+    }
 }
