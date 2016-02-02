@@ -1,5 +1,7 @@
 package com.example.victor.jedifinal;
 
+import android.content.Context;
+
 import com.example.victor.jedifinal.data.UsersServiceAPI;
 import com.example.victor.jedifinal.data.UsersServiceAPIEndPoint;
 import com.example.victor.jedifinal.data.UsersServiceAPIImpl;
@@ -24,7 +26,8 @@ public class Injector {
         return new LoginPresenter(view);
     }
 
+    public static Context context;
     public static UsersServiceAPIEndPoint getUsersServiceAPIEndPoint() {
-        return new UsersServiceAPIEndPoint();
+        return new UsersServiceAPIEndPoint(context);
     }
 }

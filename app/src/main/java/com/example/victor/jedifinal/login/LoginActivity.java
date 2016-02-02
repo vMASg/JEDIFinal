@@ -23,6 +23,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+//        TODO: improve context shipping
+        Injector.context = getApplicationContext();
 
         presenter = Injector.getLoginPresenter(this);
         regPresenter = Injector.getRegisterPresenter(this);
