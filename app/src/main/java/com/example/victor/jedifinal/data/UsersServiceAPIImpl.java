@@ -1,5 +1,6 @@
 package com.example.victor.jedifinal.data;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.example.victor.jedifinal.Injector;
@@ -28,7 +29,10 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
 
     @Override
     public void createUser(User user) {
-//        TODO: implement method
+        ContentValues cv = new ContentValues();
+        cv.put("username", user.getUserName());
+        cv.put("password", user.getHashedPassword());
+        endPoint.createUser(cv);
     }
 
     @Override

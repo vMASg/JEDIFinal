@@ -1,15 +1,20 @@
 package com.example.victor.jedifinal.data;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.example.victor.jedifinal.Injector;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
 
@@ -52,5 +57,23 @@ public class UsersServiceAPIImplTest {
         assertNotNull(user);
         assertEquals("pepe", user.getUserName());
         assertEquals("#hashedPassword", user.getHashedPassword());
+    }
+
+    @Mock
+    private User mockUser;
+
+    @Captor
+    private ArgumentCaptor<ContentValues> contentValuesArgumentCaptor;
+
+    @Ignore("put method in ContentView not mocked")
+    @Test
+    public void createUserCalls() {
+        when(mockUser.getUserName()).thenReturn("pepe");
+        when(mockUser.getHashedPassword()).thenReturn("#hashedPassword");
+        servImp.createUser(mockUser);
+        verify(mockEndPoint).createUser(contentValuesArgumentCaptor.capture());
+        ContentValues cv = contentValuesArgumentCaptor.getValue();
+        assertEquals("pepe", cv.getAsString("username"));
+        assertEquals("#hashedPassword", cv.getAsString("password"));
     }
 }
