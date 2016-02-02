@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.victor.jedifinal.Injector;
 import com.example.victor.jedifinal.R;
@@ -42,21 +43,25 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void displayBadEmail() {
 //        TODO: implement method
+        emailIL.setError("Wrong Email");
     }
 
     @Override
     public void displayBadPassword() {
 //        TODO: implement method
+        passwordIL.setError("Wrong Password");
     }
 
     @Override
     public void displayUserExists() {
 //        TODO: implement method
+        emailIL.setError("User already exists");
     }
 
     @Override
     public void displaySuccessful() {
 //        TODO: implement method
+        Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -70,14 +75,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void onClick(View v) {
+        String email = emailIL.getEditText().getText().toString();
+        String password = passwordIL.getEditText().getText().toString();
         switch (v.getId()) {
             case R.id.login_button:
-                String email = emailIL.getEditText().getText().toString();
-                String password = passwordIL.getEditText().getText().toString();
                 presenter.logUserIn(email, password);
                 break;
 
             case R.id.register_button:
+                regPresenter.registerUser(email, password);
                 break;
 
             default:
