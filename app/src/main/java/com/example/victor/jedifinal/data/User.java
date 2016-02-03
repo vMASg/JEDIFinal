@@ -37,4 +37,9 @@ public class User {
     public boolean checkPassword(String password) {
         return Hashing.sha1().hashString(password, Charset.defaultCharset()).toString().equals(hashedPassw);
     }
+
+    public String getUserProfilePictureLocation() {
+//        TODO: implement method
+        return null;
+    }
 }

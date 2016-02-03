@@ -6,11 +6,15 @@ import com.example.victor.jedifinal.data.UsersServiceAPI;
 import com.example.victor.jedifinal.data.UsersServiceAPIEndPoint;
 import com.example.victor.jedifinal.login.LoginContract;
 import com.example.victor.jedifinal.login.RegisterContract;
+import com.example.victor.jedifinal.profile.ProfileActivity;
+import com.example.victor.jedifinal.profile.ProfileContract;
 
 /**
  * Created by inlab on 01/02/2016.
  */
 public class Injector {
+
+    public static Context context;
 
     public static UsersServiceAPI usersServiceAPI;
     public static UsersServiceAPI getUsersServiceAPI() {
@@ -27,9 +31,13 @@ public class Injector {
         return registerPresenter;
     }
 
-    public static Context context;
     public static UsersServiceAPIEndPoint usersServiceAPIEndPoint;
     public static UsersServiceAPIEndPoint getUsersServiceAPIEndPoint() {
         return usersServiceAPIEndPoint;
+    }
+
+    public static ProfileContract.Presenter profilePresenter;
+    public static ProfileContract.Presenter getProfilePresenter(ProfileContract.View view) {
+        return profilePresenter;
     }
 }
