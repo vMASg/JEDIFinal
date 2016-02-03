@@ -8,6 +8,7 @@ import com.example.victor.jedifinal.data.UsersServiceAPIImpl;
 import com.example.victor.jedifinal.login.LoginContract;
 import com.example.victor.jedifinal.login.LoginPresenter;
 import com.example.victor.jedifinal.login.RegisterContract;
+import com.example.victor.jedifinal.profile.ProfileActivity;
 import com.example.victor.jedifinal.profile.ProfileContract;
 import com.example.victor.jedifinal.profile.ProfilePresenter;
 
@@ -39,7 +40,6 @@ public class Injector {
     }
 
     public static Class<?> getHomeScreen() {
-//      TODO: implement method
-        return null;
+        return ProfileActivity.class;
     }
 }
