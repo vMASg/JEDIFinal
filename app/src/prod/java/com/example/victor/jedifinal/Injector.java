@@ -30,4 +30,9 @@ public class Injector {
     public static UsersServiceAPIEndPoint getUsersServiceAPIEndPoint() {
         return new UsersServiceAPIEndPoint(context);
     }
+
+    public static Class<?> getHomeScreen() {
+//      TODO: implement method
+        return null;
+    }
 }

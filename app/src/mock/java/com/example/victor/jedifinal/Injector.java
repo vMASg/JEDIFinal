@@ -13,6 +13,7 @@ import com.example.victor.jedifinal.login.RegisterContract;
 public class Injector {
 
     public static UsersServiceAPI usersServiceAPI;
+
     public static UsersServiceAPI getUsersServiceAPI() {
         return usersServiceAPI;
     }
@@ -31,5 +32,10 @@ public class Injector {
     public static UsersServiceAPIEndPoint usersServiceAPIEndPoint;
     public static UsersServiceAPIEndPoint getUsersServiceAPIEndPoint() {
         return usersServiceAPIEndPoint;
+    }
+
+    public static Class<?> homeScreen;
+    public static Class<?> getHomeScreen() {
+        return homeScreen;
     }
 }
