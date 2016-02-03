@@ -6,10 +6,14 @@ package com.example.victor.jedifinal.profile;
 public interface ProfileContract {
 
     interface View {
+        void showUserName(String username);
 
+        void showUserProfileImage(String imagePath);
+
+        void showDefaultProfileImage();
     }
 
     interface Presenter {
-
+        void setCurrentUser(String id);
     }
 }
