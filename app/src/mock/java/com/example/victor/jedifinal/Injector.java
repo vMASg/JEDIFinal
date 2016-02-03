@@ -40,4 +40,9 @@ public class Injector {
     public static ProfileContract.Presenter getProfilePresenter(ProfileContract.View view) {
         return profilePresenter;
     }
+
+    public static Class<?> homeScreen;
+    public static Class<?> getHomeScreen() {
+        return homeScreen;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.victor.jedifinal.login;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -42,25 +43,21 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void displayBadEmail() {
-//        TODO: implement method
         emailIL.setError("Wrong Email");
     }
 
     @Override
     public void displayBadPassword() {
-//        TODO: implement method
         passwordIL.setError("Wrong Password");
     }
 
     @Override
     public void displayUserExists() {
-//        TODO: implement method
         emailIL.setError("User already exists");
     }
 
     @Override
     public void displaySuccessful() {
-//        TODO: implement method
         Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
     }
 
@@ -71,6 +68,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("userName", email);
         editor.apply();
+        Intent intent = new Intent(getApplicationContext(), Injector.getHomeScreen());
+        startActivity(intent);
     }
 
     @Override

@@ -37,4 +37,9 @@ public class Injector {
     public static ProfileContract.Presenter getProfilePresenter(ProfileContract.View view) {
         return new ProfilePresenter(view);
     }
+
+    public static Class<?> getHomeScreen() {
+//      TODO: implement method
+        return null;
+    }
 }
