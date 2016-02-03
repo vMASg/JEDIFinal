@@ -22,6 +22,9 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
         if (c.moveToFirst()) {
             User user = new User(c.getString(c.getColumnIndex("username")));
             user.setHashedPassword(c.getString(c.getColumnIndex("password")));
+            if (!c.isNull(c.getColumnIndex("prof_pic_locat"))) {
+                user.setUserProfilePictureLocation(c.getString(c.getColumnIndex("prof_pic_locat")));
+            }
             return user;
         }
         return null;
@@ -32,6 +35,10 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
         ContentValues cv = new ContentValues();
         cv.put("username", user.getUserName());
         cv.put("password", user.getHashedPassword());
+        String userProfilePictureLocation = user.getUserProfilePictureLocation();
+        if (userProfilePictureLocation != null) {
+            cv.put("prof_pic_locat", userProfilePictureLocation);
+        }
         endPoint.createUser(cv);
     }
 

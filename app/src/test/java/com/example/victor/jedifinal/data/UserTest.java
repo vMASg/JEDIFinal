@@ -34,4 +34,15 @@ public class UserTest {
         assertFalse(user.checkPassword("differentPassword"));
     }
 
+    @Test
+    public void getProfilePictLocation() {
+        user.setUserProfilePictureLocation("pictLocation");
+        assertEquals("pictLocation", user.getUserProfilePictureLocation());
+    }
+
+    @Test
+    public void getProfilePictLocationReturnsNullIfNoPic() {
+        assertNull(user.getUserProfilePictureLocation());
+    }
+
 }

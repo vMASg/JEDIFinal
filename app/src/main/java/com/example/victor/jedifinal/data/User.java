@@ -11,10 +11,12 @@ public class User {
 
     private String userName;
     private String hashedPassw;
+    private String userProfilePictureLocation;
 
     public User(String userName) {
         this.userName = userName;
         this.hashedPassw = "";
+        this.userProfilePictureLocation = null;
     }
 
     public void setPassword(String password) {
@@ -39,7 +41,10 @@ public class User {
     }
 
     public String getUserProfilePictureLocation() {
-//        TODO: implement method
-        return null;
+        return userProfilePictureLocation;
+    }
+
+    public void setUserProfilePictureLocation(String userProfilePictureLocation) {
+        this.userProfilePictureLocation = userProfilePictureLocation;
     }
 }

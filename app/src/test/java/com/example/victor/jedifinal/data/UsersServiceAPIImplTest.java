@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
@@ -30,6 +31,9 @@ public class UsersServiceAPIImplTest {
 
     @Mock
     private Cursor mockCursor;
+
+    @Mock
+    private User mockUser;
 
     @Before
     public void setupUsersServiceAPIImpl() {
@@ -50,8 +54,10 @@ public class UsersServiceAPIImplTest {
         when(mockCursor.moveToFirst()).thenReturn(true);
         when(mockCursor.getColumnIndex("username")).thenReturn(0);
         when(mockCursor.getColumnIndex("password")).thenReturn(1);
+        when(mockCursor.getColumnIndex("prof_pic_locat")).thenReturn(2);
         when(mockCursor.getString(0)).thenReturn("pepe");
         when(mockCursor.getString(1)).thenReturn("#hashedPassword");
+        when(mockCursor.isNull(2)).thenReturn(true);
         when(mockEndPoint.fetchUser("pepe")).thenReturn(mockCursor);
         User user = servImp.findUser("pepe");
         assertNotNull(user);
@@ -59,8 +65,35 @@ public class UsersServiceAPIImplTest {
         assertEquals("#hashedPassword", user.getHashedPassword());
     }
 
-    @Mock
-    private User mockUser;
+    @Test
+    public void userWithProfilePictureCallsSetProfPic() {
+        when(mockCursor.moveToFirst()).thenReturn(true);
+        when(mockCursor.getColumnIndex("username")).thenReturn(0);
+        when(mockCursor.getColumnIndex("password")).thenReturn(1);
+        when(mockCursor.getColumnIndex("prof_pic_locat")).thenReturn(2);
+        when(mockCursor.getString(0)).thenReturn("pepe");
+        when(mockCursor.getString(1)).thenReturn("#hashedPassword");
+        when(mockCursor.getString(2)).thenReturn("profilePictureLoc");
+        when(mockCursor.isNull(2)).thenReturn(false);
+        when(mockEndPoint.fetchUser("pepe")).thenReturn(mockCursor);
+        User user = servImp.findUser("pepe");
+        assertEquals("profilePictureLoc", user.getUserProfilePictureLocation());
+    }
+
+    @Test
+    public void userWithProfilePictureNotCallsSetProfPic() {
+        when(mockCursor.moveToFirst()).thenReturn(true);
+        when(mockCursor.getColumnIndex("username")).thenReturn(0);
+        when(mockCursor.getColumnIndex("password")).thenReturn(1);
+        when(mockCursor.getColumnIndex("prof_pic_locat")).thenReturn(2);
+        when(mockCursor.getString(0)).thenReturn("pepe");
+        when(mockCursor.getString(1)).thenReturn("#hashedPassword");
+        when(mockCursor.getString(2)).thenReturn("profilePictureLoc");
+        when(mockCursor.isNull(2)).thenReturn(true);
+        when(mockEndPoint.fetchUser("pepe")).thenReturn(mockCursor);
+        User user = servImp.findUser("pepe");
+        assertNull(user.getUserProfilePictureLocation());
+    }
 
     @Captor
     private ArgumentCaptor<ContentValues> contentValuesArgumentCaptor;
