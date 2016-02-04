@@ -11,37 +11,35 @@
     tools:context="com.example.victor.jedifinal.profile.ProfileActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_imageView"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1" />
 
     <RelativeLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/profile_user_name"
-            android:id="@+id/textView2"
+            android:id="@+id/profile_textView2"
             android:layout_marginLeft="96dp"
             android:layout_marginStart="96dp"
-            android:layout_alignTop="@+id/profile_tw_username"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
+            android:layout_height="match_parent"
+            android:text="Nothing"
             android:id="@+id/profile_tw_username"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
+            android:layout_toRightOf="@+id/profile_textView2"
+            android:layout_toEndOf="@+id/profile_textView2"
             android:layout_marginLeft="27dp"
             android:layout_marginStart="27dp" />
     </RelativeLayout>
