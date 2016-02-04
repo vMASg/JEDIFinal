@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@string/profile_undefined"
                 android:id="@+id/profile_username"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/profile_textView2"
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@string/profile_undefined"
                 android:id="@+id/profile_home_town"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/textView2"
@@ -95,7 +95,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@string/profile_undefined"
                 android:id="@+id/profile_birthday"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/textView3"
