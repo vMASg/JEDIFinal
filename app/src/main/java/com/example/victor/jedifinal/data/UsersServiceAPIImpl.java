@@ -25,6 +25,10 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
             if (!c.isNull(c.getColumnIndex("prof_pic_locat"))) {
                 user.setUserProfilePictureLocation(c.getString(c.getColumnIndex("prof_pic_locat")));
             }
+            user.setBirthdayDay(c.getInt(c.getColumnIndex("birthday_day")));
+            user.setBirthdayMonth(c.getInt(c.getColumnIndex("birthday_month")));
+            user.setBirthdayYear(c.getInt(c.getColumnIndex("birthday_year")));
+            user.setHometown(c.getString(c.getColumnIndex("hometown")));
             return user;
         }
         return null;

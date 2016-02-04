@@ -67,4 +67,20 @@ public class User {
     public int getBirthdayYear() {
         return birthdayYear;
     }
+
+    public void setBirthdayDay(int birthdayDay) {
+        this.birthdayDay = birthdayDay;
+    }
+
+    public void setBirthdayMonth(int birthdayMonth) {
+        this.birthdayMonth = birthdayMonth;
+    }
+
+    public void setBirthdayYear(int birthdayYear) {
+        this.birthdayYear = birthdayYear;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
 }

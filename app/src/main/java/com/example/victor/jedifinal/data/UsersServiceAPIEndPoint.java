@@ -25,9 +25,11 @@ public class UsersServiceAPIEndPoint extends SQLiteOpenHelper{
             "CREATE TABLE " + TABLE_NAME + " (" +
                     "username VARCHAR(255) PRIMARY KEY, " +
                     "password VARCHAR(255) NOT NULL, " +
-                    "prof_pic_locat TEXT " +
-//                    "hometown TEXT, " +
-//                    "birthplace TEXT " +
+                    "prof_pic_locat TEXT, " +
+                    "hometown TEXT, " +
+                    "birthday_day INTEGER, " +
+                    "birthday_month INTEGER, " +
+                    "birthday_year INTEGER " +
             ");";
 
     public UsersServiceAPIEndPoint(Context context) {
