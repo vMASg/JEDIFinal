@@ -12,6 +12,10 @@ public class User {
     private String userName;
     private String hashedPassw;
     private String userProfilePictureLocation;
+    private String hometown;
+    private int birthdayDay;
+    private int birthdayMonth;
+    private int birthdayYear;
 
     public User(String userName) {
         this.userName = userName;
@@ -46,5 +50,21 @@ public class User {
 
     public void setUserProfilePictureLocation(String userProfilePictureLocation) {
         this.userProfilePictureLocation = userProfilePictureLocation;
+    }
+
+    public String getHometown() {
+        return hometown;
+    }
+
+    public int getBirthdayDay() {
+        return birthdayDay;
+    }
+
+    public int getBirthdayMonth() {
+        return birthdayMonth;
+    }
+
+    public int getBirthdayYear() {
+        return birthdayYear;
     }
 }

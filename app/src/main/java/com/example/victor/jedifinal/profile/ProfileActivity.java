@@ -14,6 +14,8 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     private ProfileContract.Presenter presenter;
     private TextView usernameTv;
     private ImageView profilePicture;
+    private TextView hometownTv;
+    private TextView birthdayTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +25,39 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         Injector.context = getApplicationContext();
         presenter = Injector.getProfilePresenter(this);
 
-        usernameTv = (TextView) findViewById(R.id.profile_tw_username);
         profilePicture = (ImageView) findViewById(R.id.profile_imageView);
+
+        usernameTv = (TextView) findViewById(R.id.profile_username);
+        hometownTv = (TextView) findViewById(R.id.profile_home_town);
+        birthdayTv = (TextView) findViewById(R.id.profile_birthday);
 
         SharedPreferences settings = getSharedPreferences("userActive", 0);
         presenter.setCurrentUser(settings.getString("userName", ""));
     }
 
     @Override
-    public void showUserName(String username) {
-         usernameTv.setText(username);
-    }
 
-    @Override
     public void showUserProfileImage(String imagePath) {
 //        TODO: implement method
     }
 
     @Override
     public void showDefaultProfileImage() {
-//        TODO: implement method
         profilePicture.setImageResource(R.drawable.default_image);
+    }
 
+    @Override
+    public void showUserName(String username) {
+        usernameTv.setText(username);
+    }
+
+    @Override
+    public void showBirthday(int day, int month, int year) {
+        birthdayTv.setText(String.format("%d-%d-%d", day, month, year));
+    }
+
+    @Override
+    public void showHomeTown(String hometown) {
+        hometownTv.setText(hometown);
     }
 }

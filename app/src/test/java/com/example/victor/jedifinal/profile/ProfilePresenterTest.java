@@ -44,10 +44,18 @@ public class ProfilePresenterTest {
     public void setCurrentUserUpdatesViewInformation() {
         when(mockUser.getUserName()).thenReturn("username");
         when(mockUser.getUserProfilePictureLocation()).thenReturn("location");
+        when(mockUser.getHometown()).thenReturn("BCN");
+        when(mockUser.getBirthdayDay()).thenReturn(1);
+        when(mockUser.getBirthdayMonth()).thenReturn(1);
+        when(mockUser.getBirthdayYear()).thenReturn(1);
         when(usersServiceAPI.findUser("userid")).thenReturn(mockUser);
+
         mProfilePresenter.setCurrentUser("userid");
+
         verify(profileView).showUserName("username");
         verify(profileView).showUserProfileImage("location");
+        verify(profileView).showHomeTown("BCN");
+        verify(profileView).showBirthday(1,1,1);
     }
 
     @Test

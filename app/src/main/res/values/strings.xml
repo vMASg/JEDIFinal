@@ -4,5 +4,7 @@
     <string name="login_login">Log in</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
-    <string name="profile_user_name">User name</string>
+    <string name="profile_username">User name</string>
+    <string name="profile_home_town">Home town</string>
+    <string name="profile_birthday">Birthday</string>
 </resources>

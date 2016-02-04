@@ -11,6 +11,10 @@ public interface ProfileContract {
         void showUserProfileImage(String imagePath);
 
         void showDefaultProfileImage();
+
+        void showHomeTown(String hometown);
+
+        void showBirthday(int day, int month, int year);
     }
 
     interface Presenter {

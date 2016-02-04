@@ -20,13 +20,19 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void setCurrentUser(String id) {
-        this.currentUser = usersServiceAPI.findUser(id);
-        view.showUserName(this.currentUser.getUserName());
-        String profileLocation = this.currentUser.getUserProfilePictureLocation();
+        currentUser = usersServiceAPI.findUser(id);
+        view.showUserName(currentUser.getUserName());
+        String profileLocation = currentUser.getUserProfilePictureLocation();
         if (profileLocation == null) {
             view.showDefaultProfileImage();
         } else {
             view.showUserProfileImage(profileLocation);
         }
+        view.showHomeTown(currentUser.getHometown());
+        view.showBirthday(
+                currentUser.getBirthdayDay(),
+                currentUser.getBirthdayMonth(),
+                currentUser.getBirthdayYear()
+        );
     }
 }
