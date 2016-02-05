@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private LoginContract.Presenter presenter;
     private RegisterContract.Presenter regPresenter;
 
-    private TextInputLayout emailIL, passwordIL;
+    private TextInputLayout usernameIL, passwordIL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
             presenter = Injector.getLoginPresenter(this);
             regPresenter = Injector.getRegisterPresenter(this);
 
-            emailIL = (TextInputLayout) findViewById(R.id.login_email_wrapper);
+            usernameIL = (TextInputLayout) findViewById(R.id.login_username_wrapper);
             passwordIL = (TextInputLayout) findViewById(R.id.login_password_wrapper);
 
             Button loginButton = (Button) findViewById(R.id.login_button);
@@ -50,8 +50,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void displayBadEmail() {
-        emailIL.setError("Wrong Email");
+    public void displayBadusername() {
+        usernameIL.setError("Wrong username");
     }
 
     @Override
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void displayUserExists() {
-        emailIL.setError("User already exists");
+        usernameIL.setError("User already exists");
     }
 
     @Override
@@ -96,15 +96,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void onClick(View v) {
-        String email = emailIL.getEditText().getText().toString();
+        String username = usernameIL.getEditText().getText().toString();
         String password = passwordIL.getEditText().getText().toString();
         switch (v.getId()) {
             case R.id.login_button:
-                presenter.logUserIn(email, password);
+                presenter.logUserIn(username, password);
                 break;
 
             case R.id.register_button:
-                regPresenter.registerUser(email, password);
+                regPresenter.registerUser(username, password);
                 break;
 
             default:

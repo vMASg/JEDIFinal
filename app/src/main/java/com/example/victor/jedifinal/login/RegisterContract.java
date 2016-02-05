@@ -17,6 +17,6 @@ public interface RegisterContract {
 
     interface Presenter {
 
-        void registerUser(String email, String password);
+        void registerUser(String username, String password);
     }
 }

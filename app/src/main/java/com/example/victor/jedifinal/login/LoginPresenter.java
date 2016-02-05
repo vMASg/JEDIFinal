@@ -26,25 +26,25 @@ public class LoginPresenter implements LoginContract.Presenter, RegisterContract
     }
 
     @Override
-    public void logUserIn(String email, String password) {
-        User user = usersServiceAPI.findUser(email);
+    public void logUserIn(String username, String password) {
+        User user = usersServiceAPI.findUser(username);
         if (user == null) {
-            logView.displayBadEmail();
+            logView.displayBadusername();
         } else if (user.checkPassword(password)) {
-            logView.navigateProfileEdit(email);
+            logView.navigateProfileEdit(username);
         } else {
             logView.displayBadPassword();
         }
     }
 
     @Override
-    public void registerUser(String email, String password) {
-        if (usersServiceAPI.findUser(email) == null) {
-            User user = new User(email);
+    public void registerUser(String username, String password) {
+        if (usersServiceAPI.findUser(username) == null) {
+            User user = new User(username);
             user.setPassword(password);
             usersServiceAPI.createUser(user);
             regView.displaySuccessful();
-            regView.navigateHome(email);
+            regView.navigateHome(username);
         } else {
             regView.displayUserExists();
         }

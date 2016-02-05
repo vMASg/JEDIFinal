@@ -8,7 +8,7 @@ public interface LoginContract {
 
     interface View {
 
-        void displayBadEmail();
+        void displayBadusername();
 
         void displayBadPassword();
 
@@ -18,6 +18,6 @@ public interface LoginContract {
 
     interface Presenter {
 
-        void logUserIn(String email, String password);
+        void logUserIn(String username, String password);
     }
 }

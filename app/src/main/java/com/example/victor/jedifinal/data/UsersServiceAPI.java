@@ -5,11 +5,11 @@ package com.example.victor.jedifinal.data;
  */
 public interface UsersServiceAPI {
 
-    User findUser(String email);
+    User findUser(String username);
 
     void createUser(User user);
 
     void saveUser(User user);
 
-    void deleteUser(String email);
+    void deleteUser(String username);
 }

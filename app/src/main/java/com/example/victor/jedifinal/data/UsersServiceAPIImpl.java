@@ -17,8 +17,8 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
     }
 
     @Override
-    public User findUser(String email) {
-        Cursor c = endPoint.fetchUser(email);
+    public User findUser(String username) {
+        Cursor c = endPoint.fetchUser(username);
         if (c.moveToFirst()) {
             User user = new User(c.getString(c.getColumnIndex("username")));
             user.setHashedPassword(c.getString(c.getColumnIndex("password")));
@@ -52,7 +52,7 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
     }
 
     @Override
-    public void deleteUser(String email) {
+    public void deleteUser(String username) {
 //        TODO: implement method
     }
 }

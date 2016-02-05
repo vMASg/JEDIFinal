@@ -51,10 +51,10 @@ public class LoginPresenterTest {
     }
 
     @Test
-    public void loginPresenterCallsBadEmailIfUsersDoesNotExist() {
+    public void loginPresenterCallsBadusernameIfUsersDoesNotExist() {
         when(usersServiceAPI.findUser("user@somewhere.com")).thenReturn(null);
         mLoginPresenter.logUserIn("user@somewhere.com", "password");
-        verify(loginView).displayBadEmail();
+        verify(loginView).displayBadusername();
     }
 
     @Mock
