@@ -39,7 +39,12 @@ public class Injector {
         return new ProfilePresenter(view);
     }
 
-    public static Class<?> getHomeScreen() {
+    public static Class<?> getHomeScreenActivity() {
         return ProfileActivity.class;
+    }
+
+    public static Class<?> getEditProfileActivity() {
+//        TODO: implement method
+        return null;
     }
 }

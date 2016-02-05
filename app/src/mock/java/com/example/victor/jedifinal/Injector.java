@@ -9,6 +9,8 @@ import com.example.victor.jedifinal.login.RegisterContract;
 import com.example.victor.jedifinal.profile.ProfileActivity;
 import com.example.victor.jedifinal.profile.ProfileContract;
 
+import java.lang.Class;
+
 /**
  * Created by inlab on 01/02/2016.
  */
@@ -41,8 +43,13 @@ public class Injector {
         return profilePresenter;
     }
 
-    public static Class<?> homeScreen;
-    public static Class<?> getHomeScreen() {
-        return homeScreen;
+    public static Class<?> homeScreenActivity;
+    public static Class<?> getHomeScreenActivity() {
+        return homeScreenActivity;
+    }
+
+    public static Class<?> editProfileActivity;
+    public static Class<?> getEditProfileActivity() {
+        return editProfileActivity;
     }
 }

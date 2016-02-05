@@ -28,17 +28,25 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 //        TODO: improve context shipping
         Injector.context = getApplicationContext();
 
-        presenter = Injector.getLoginPresenter(this);
-        regPresenter = Injector.getRegisterPresenter(this);
+        SharedPreferences settings = getSharedPreferences("userActive", 0);
+        if (settings.contains("username")) {
+            Intent intent = new Intent(getApplicationContext(), Injector.getHomeScreenActivity());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+            startActivity(intent);
+            this.finish();
+        } else {
+            presenter = Injector.getLoginPresenter(this);
+            regPresenter = Injector.getRegisterPresenter(this);
 
-        emailIL = (TextInputLayout) findViewById(R.id.login_email_wrapper);
-        passwordIL = (TextInputLayout) findViewById(R.id.login_password_wrapper);
+            emailIL = (TextInputLayout) findViewById(R.id.login_email_wrapper);
+            passwordIL = (TextInputLayout) findViewById(R.id.login_password_wrapper);
 
-        Button loginButton = (Button) findViewById(R.id.login_button);
-        Button registerButton = (Button) findViewById(R.id.register_button);
+            Button loginButton = (Button) findViewById(R.id.login_button);
+            Button registerButton = (Button) findViewById(R.id.register_button);
 
-        loginButton.setOnClickListener(this);
-        registerButton.setOnClickListener(this);
+            loginButton.setOnClickListener(this);
+            registerButton.setOnClickListener(this);
+        }
     }
 
     @Override
@@ -68,8 +76,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("userName", email);
         editor.apply();
-        Intent intent = new Intent(getApplicationContext(), Injector.getHomeScreen());
+        Intent intent = new Intent(getApplicationContext(), Injector.getEditProfileActivity());
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         startActivity(intent);
+        this.finish();
     }
 
     @Override
