@@ -31,7 +31,7 @@ public class LoginPresenter implements LoginContract.Presenter, RegisterContract
         if (user == null) {
             logView.displayBadUsername();
         } else if (user.checkPassword(password)) {
-            logView.navigateProfileEdit(username);
+            logView.navigateHome(username);
         } else {
             logView.displayBadPassword();
         }
@@ -44,7 +44,7 @@ public class LoginPresenter implements LoginContract.Presenter, RegisterContract
             user.setPassword(password);
             usersServiceAPI.createUser(user);
             regView.displaySuccessful();
-            regView.navigateHome(username);
+            regView.navigateProfileEdit(username);
         } else {
             regView.displayUserExists();
         }
