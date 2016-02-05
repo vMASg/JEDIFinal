@@ -8,7 +8,7 @@ public interface LoginContract {
 
     interface View {
 
-        void displayBadusername();
+        void displayBadUsername();
 
         void displayBadPassword();
 

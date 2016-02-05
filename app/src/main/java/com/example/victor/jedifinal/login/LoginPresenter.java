@@ -29,7 +29,7 @@ public class LoginPresenter implements LoginContract.Presenter, RegisterContract
     public void logUserIn(String username, String password) {
         User user = usersServiceAPI.findUser(username);
         if (user == null) {
-            logView.displayBadusername();
+            logView.displayBadUsername();
         } else if (user.checkPassword(password)) {
             logView.navigateProfileEdit(username);
         } else {

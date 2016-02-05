@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void displayBadusername() {
+    public void displayBadUsername() {
         usernameIL.setError("Wrong username");
     }
 

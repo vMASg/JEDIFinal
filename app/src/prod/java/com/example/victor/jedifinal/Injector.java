@@ -44,7 +44,6 @@ public class Injector {
     }
 
     public static Class<?> getEditProfileActivity() {
-//        TODO: implement method
-        return null;
+        return ProfileActivity.class;
     }
 }
