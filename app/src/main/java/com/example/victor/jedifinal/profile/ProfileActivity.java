@@ -44,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         if (item.getItemId() == R.id.profile_edit_menu_item) {
             navigateToEditable();
         } else {
-            Log.wtf("FINAL", "Unknown id in Profile menu");
+            return super.onOptionsItemSelected(item);
         }
         return true;
     }

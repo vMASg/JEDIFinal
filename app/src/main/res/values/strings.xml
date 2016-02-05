@@ -9,4 +9,6 @@
     <string name="profile_birthday">Birthday</string>
     <string name="profile_undefined">Undefined</string>
     <string name="profile_menu_edit">Edit</string>
+    <string name="edit_profile_accept">Accept</string>
+    <string name="edit_profile_cancel">Cancel</string>
 </resources>
