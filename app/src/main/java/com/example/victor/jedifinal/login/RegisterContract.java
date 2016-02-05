@@ -11,7 +11,7 @@ public interface RegisterContract {
 
         void displaySuccessful();
 
-        void navigateHome(String email);
+        void navigateHome(String username);
 
     }
 

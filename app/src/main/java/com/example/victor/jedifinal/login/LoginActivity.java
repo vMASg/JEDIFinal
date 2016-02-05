@@ -70,16 +70,28 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void navigateHome(String email) {
-//        TODO: implement method
-        SharedPreferences settings = getSharedPreferences("userActive", 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("userName", email);
-        editor.apply();
+    public void navigateHome(String username) {
+        setCurrentUser(username);
+        Intent intent = new Intent(getApplicationContext(), Injector.getHomeScreenActivity());
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        startActivity(intent);
+        this.finish();
+    }
+
+    @Override
+    public void navigateProfileEdit(String username) {
+        setCurrentUser(username);
         Intent intent = new Intent(getApplicationContext(), Injector.getEditProfileActivity());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         startActivity(intent);
         this.finish();
+    }
+
+    private void setCurrentUser(String username) {
+        SharedPreferences settings = getSharedPreferences("userActive", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("username", username);
+        editor.apply();
     }
 
     @Override

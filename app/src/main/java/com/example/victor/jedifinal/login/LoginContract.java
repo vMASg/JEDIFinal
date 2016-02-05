@@ -12,7 +12,7 @@ public interface LoginContract {
 
         void displayBadPassword();
 
-        void navigateHome(String email);
+        void navigateProfileEdit(String username);
 
     }
 

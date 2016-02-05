@@ -31,7 +31,7 @@ public class LoginPresenter implements LoginContract.Presenter, RegisterContract
         if (user == null) {
             logView.displayBadEmail();
         } else if (user.checkPassword(password)) {
-            logView.navigateHome(email);
+            logView.navigateProfileEdit(email);
         } else {
             logView.displayBadPassword();
         }
