@@ -54,7 +54,7 @@ public class LoginPresenterTest {
     public void loginPresenterCallsBadusernameIfUsersDoesNotExist() {
         when(usersServiceAPI.findUser("user@somewhere.com")).thenReturn(null);
         mLoginPresenter.logUserIn("user@somewhere.com", "password");
-        verify(loginView).displayBadusername();
+        verify(loginView).displayBadUsername();
     }
 
     @Mock
@@ -93,6 +93,6 @@ public class LoginPresenterTest {
         when(usersServiceAPI.findUser("user@somewhere.com")).thenReturn(null);
         registerPresenter.registerUser("user@somewhere.com", "password");
         verify(registrationView).displaySuccessful();
-        verify(registrationView).navigateHome("user@somewhere.com");
+        verify(registrationView).navigateProfileEdit("user@somewhere.com");
     }
 }
