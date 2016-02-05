@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
         SharedPreferences settings = getSharedPreferences("userActive", 0);
         if (settings.contains("username")) {
-            Intent intent = new Intent(getApplicationContext(), Injector.getHomeScreenActivity());
+            Intent intent = new Intent(getApplicationContext(), Injector.getProfileActivity());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
             startActivity(intent);
             this.finish();
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void navigateHome(String username) {
         setCurrentUser(username);
-        Intent intent = new Intent(getApplicationContext(), Injector.getHomeScreenActivity());
+        Intent intent = new Intent(getApplicationContext(), Injector.getProfileActivity());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         startActivity(intent);
         this.finish();
@@ -81,8 +81,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void navigateProfileEdit(String username) {
         setCurrentUser(username);
-        Intent intent = new Intent(getApplicationContext(), Injector.getEditProfileActivity());
+        Intent intent = new Intent(getApplicationContext(), Injector.getProfileActivity());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        intent.putExtra("EditMode", true);
         startActivity(intent);
         this.finish();
     }

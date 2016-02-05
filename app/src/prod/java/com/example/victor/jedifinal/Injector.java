@@ -40,11 +40,8 @@ public class Injector {
         return new ProfilePresenter(view);
     }
 
-    public static Class<?> getHomeScreenActivity() {
+    public static Class<?> getProfileActivity() {
         return ProfileActivity.class;
     }
 
-    public static Class<?> getEditProfileActivity() {
-        return EditProfileActivity.class;
-    }
 }

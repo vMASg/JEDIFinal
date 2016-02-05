@@ -37,6 +37,10 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
         SharedPreferences settings = getSharedPreferences("userActive", 0);
         presenter.setCurrentUser(settings.getString("username", ""));
+
+        if (getIntent().hasExtra("EditMode")) {
+            navigateToEditable();
+        }
     }
 
     @Override
@@ -50,7 +54,8 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     }
 
     private void navigateToEditable() {
-//        TODO: implement method
+        Intent intent = new Intent(getApplicationContext(), EditProfileActivity.class);
+        startActivity(intent);
     }
 
     @Override
