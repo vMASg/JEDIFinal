@@ -1,8 +1,12 @@
 package com.example.victor.jedifinal.profile;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,7 +40,26 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.profile_edit_menu_item) {
+            navigateToEditable();
+        } else {
+            Log.wtf("FINAL", "Unknown id in Profile menu");
+        }
+        return true;
+    }
 
+    private void navigateToEditable() {
+//        TODO: implement method
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_menu, menu);
+        return true;
+    }
+
+    @Override
     public void showUserProfileImage(String imagePath) {
 //        TODO: implement method
     }
