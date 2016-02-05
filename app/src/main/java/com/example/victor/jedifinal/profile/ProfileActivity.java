@@ -36,7 +36,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         birthdayTv = (TextView) findViewById(R.id.profile_birthday);
 
         SharedPreferences settings = getSharedPreferences("userActive", 0);
-        presenter.setCurrentUser(settings.getString("userName", ""));
+        presenter.setCurrentUser(settings.getString("username", ""));
     }
 
     @Override
