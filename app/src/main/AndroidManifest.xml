@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".profile.ProfileActivity" />
-        <activity android:name=".profile.EditProfileActivity"></activity>
+        <activity android:name=".profile.EditProfileActivity" />
+        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>

@@ -10,11 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.victor.jedifinal.BaseActivity;
 import com.example.victor.jedifinal.Injector;
 import com.example.victor.jedifinal.R;
 
 //  http://code.tutsplus.com/tutorials/creating-a-login-screen-using-textinputlayout--cms-24168
-public class LoginActivity extends AppCompatActivity implements LoginContract.View, View.OnClickListener, RegisterContract.View {
+public class LoginActivity extends BaseActivity implements LoginContract.View, View.OnClickListener, RegisterContract.View {
 
     private LoginContract.Presenter presenter;
     private RegisterContract.Presenter regPresenter;

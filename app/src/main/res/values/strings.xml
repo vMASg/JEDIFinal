@@ -15,4 +15,7 @@
     <string name="edit_profile_hometown">Hometown</string>
     <string name="edit_profile_birthday">Birthday</string>
     <string name="edit_profile_new_password">New password</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

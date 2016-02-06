@@ -10,10 +10,11 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.victor.jedifinal.BaseActivity;
 import com.example.victor.jedifinal.Injector;
 import com.example.victor.jedifinal.R;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileContract.View {
+public class ProfileActivity extends BaseActivity implements ProfileContract.View {
 
     private ProfileContract.Presenter presenter;
     private TextView usernameTv;
