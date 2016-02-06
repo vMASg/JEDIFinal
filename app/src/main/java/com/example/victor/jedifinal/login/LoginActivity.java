@@ -54,9 +54,19 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         usernameIL.setError("Wrong username");
     }
 
+    private void displayShortPassword() {
+//        TODO: implement method
+        passwordIL.setError("Password must be at least 4 characters long");
+    }
+
     @Override
     public void displayBadPassword() {
         passwordIL.setError("Wrong Password");
+    }
+
+    private void displayEmptyUsername() {
+//        TODO: implement method
+        usernameIL.setError("Username field cannot be empty");
     }
 
     @Override
@@ -98,17 +108,31 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void onClick(View v) {
         String username = usernameIL.getEditText().getText().toString();
         String password = passwordIL.getEditText().getText().toString();
-        switch (v.getId()) {
-            case R.id.login_button:
-                presenter.logUserIn(username, password);
-                break;
+        if (validateInputs(username, password)) {
+            switch (v.getId()) {
+                case R.id.login_button:
+                    presenter.logUserIn(username, password);
+                    break;
 
-            case R.id.register_button:
-                regPresenter.registerUser(username, password);
-                break;
+                case R.id.register_button:
+                    regPresenter.registerUser(username, password);
+                    break;
 
-            default:
-                Log.wtf("FINAL", "Login: Unknown id");
+                default:
+                    Log.wtf("FINAL", "Login: Unknown id");
+            }
         }
+    }
+
+    private boolean validateInputs(String username, String password) {
+        if (username.length() == 0) {
+            displayEmptyUsername();
+            return false;
+        }
+        if (password.length() < 4) {
+            displayShortPassword();
+            return false;
+        }
+        return true;
     }
 }
