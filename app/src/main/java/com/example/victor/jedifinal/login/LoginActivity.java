@@ -55,7 +55,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     private void displayShortPassword() {
-//        TODO: implement method
         passwordIL.setError("Password must be at least 4 characters long");
     }
 
@@ -65,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     private void displayEmptyUsername() {
-//        TODO: implement method
         usernameIL.setError("Username field cannot be empty");
     }
 

@@ -48,7 +48,6 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
 
     @Override
     public void saveUser(User user) {
-//        TODO: implement method
         ContentValues cv = new ContentValues();
         cv.put("password", user.getHashedPassword());
 

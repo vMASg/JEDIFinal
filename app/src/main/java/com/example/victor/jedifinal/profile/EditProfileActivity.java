@@ -56,7 +56,6 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.edit_profile_accept:
-//                TODO: implement case
                 update_profile();
                 break;
             case R.id.edit_profile_cancel:
