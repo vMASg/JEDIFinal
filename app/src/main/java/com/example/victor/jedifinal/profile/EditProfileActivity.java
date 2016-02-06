@@ -4,12 +4,14 @@ import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.victor.jedifinal.Injector;
 import com.example.victor.jedifinal.R;
@@ -55,6 +57,7 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
         switch (item.getItemId()) {
             case R.id.edit_profile_accept:
 //                TODO: implement case
+                update_profile();
                 break;
             case R.id.edit_profile_cancel:
                 this.finish();
@@ -89,5 +92,36 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
     public void showBirthday(int day, int month, int year) {
 //        birthdayIL.getEditText().setText(String.format("%d-%d-%d", day, month, year));
         birthdayDP.updateDate(year, month, day);
+    }
+
+    private void update_profile() {
+        String password = passwrdIL.getEditText().getText().toString();
+        String password2 = passwrd2IL.getEditText().getText().toString();
+        String homeTown = hometownIL.getEditText().getText().toString();
+        int day = birthdayDP.getDayOfMonth();
+        int month = birthdayDP.getMonth();
+        int year = birthdayDP.getYear();
+        if (validate_input(password, password2)) {
+            if (password.length() > 0) {
+                presenter.setPassword(password);
+            }
+            if (homeTown.length() > 0) {
+                presenter.setHomeTown(homeTown);
+            }
+            if (birthdayDP.isDirty()) {
+                presenter.setBirthday(day, month, year);
+            }
+            presenter.saveUserData();
+            Toast.makeText(getApplicationContext(), "Profile updated", Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
+    }
+
+    private boolean validate_input(String password, String password2) {
+        if (!password.equals(password2)) {
+            passwrd2IL.setError("Passwords don't match");
+            return false;
+        }
+        return true;
     }
 }
