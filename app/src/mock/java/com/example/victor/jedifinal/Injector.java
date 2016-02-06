@@ -43,13 +43,9 @@ public class Injector {
         return profilePresenter;
     }
 
-    public static Class<?> homeScreenActivity;
-    public static Class<?> getHomeScreenActivity() {
-        return homeScreenActivity;
+    public static Class<?> profileActivity;
+    public static Class<?> getProfileActivity() {
+        return profileActivity;
     }
 
-    public static Class<?> editProfileActivity;
-    public static Class<?> getEditProfileActivity() {
-        return editProfileActivity;
-    }
 }

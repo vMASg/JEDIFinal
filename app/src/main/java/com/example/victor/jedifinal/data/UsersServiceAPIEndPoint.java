@@ -47,6 +47,12 @@ public class UsersServiceAPIEndPoint extends SQLiteOpenHelper{
         db.insert(TABLE_NAME, null, cv);
     }
 
+    public void updateUser(String username, ContentValues cv) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] value = {username};
+        db.update(TABLE_NAME, cv, "username=?", value);
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(USERS_TABLE_CREATE);

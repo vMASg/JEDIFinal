@@ -19,5 +19,13 @@ public interface ProfileContract {
 
     interface Presenter {
         void setCurrentUser(String id);
+
+        void setPassword(String password);
+
+        void setHomeTown(String homeTown);
+
+        void setBirthday(int day, int month, int year);
+
+        void saveUserData();
     }
 }

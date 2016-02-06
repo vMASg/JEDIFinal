@@ -49,6 +49,30 @@ public class UsersServiceAPIImpl implements UsersServiceAPI {
     @Override
     public void saveUser(User user) {
 //        TODO: implement method
+        ContentValues cv = new ContentValues();
+        cv.put("password", user.getHashedPassword());
+
+        String userProfilePictureLocation = user.getUserProfilePictureLocation();
+        String hometown = user.getHometown();
+        int birthdayDay = user.getBirthdayDay();
+        int birthdayMonth = user.getBirthdayMonth();
+        int birthdayYear = user.getBirthdayYear();
+        if (userProfilePictureLocation != null) {
+            cv.put("profile_pic_locat", userProfilePictureLocation);
+        }
+        if (hometown != null) {
+            cv.put("hometown", hometown);
+        }
+        if (birthdayDay > 0) {
+            cv.put("birthday_day", birthdayDay);
+        }
+        if (birthdayMonth > 0) {
+            cv.put("birthday_month", birthdayMonth);
+        }
+        if (birthdayYear > 0) {
+            cv.put("birthday_year", birthdayYear);
+        }
+        endPoint.updateUser(user.getUserName(), cv);
     }
 
     @Override
