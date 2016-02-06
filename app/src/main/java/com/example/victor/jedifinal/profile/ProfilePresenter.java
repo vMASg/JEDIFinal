@@ -35,4 +35,27 @@ public class ProfilePresenter implements ProfileContract.Presenter {
                 currentUser.getBirthdayYear()
         );
     }
+
+    @Override
+    public void setPassword(String password) {
+        currentUser.setPassword(password);
+    }
+
+    @Override
+    public void setHomeTown(String homeTown) {
+        currentUser.setHometown(homeTown);
+    }
+
+    @Override
+    public void setBirthday(int day, int month, int year) {
+        currentUser.setBirthdayDay(day);
+        currentUser.setBirthdayMonth(month);
+        currentUser.setBirthdayYear(year);
+    }
+
+    @Override
+    public void saveUserData() {
+//        TODO: capture possible errors
+        usersServiceAPI.saveUser(currentUser);
+    }
 }
