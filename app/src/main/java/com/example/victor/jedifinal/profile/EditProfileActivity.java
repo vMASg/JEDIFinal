@@ -105,12 +105,10 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
             if (password.length() > 0) {
                 presenter.setPassword(password);
             }
-            if (homeTown.length() > 0) {
-                presenter.setHomeTown(homeTown);
-            }
             if (birthdayDP.isDirty()) {
                 presenter.setBirthday(day, month, year);
             }
+            presenter.setHomeTown(homeTown);
             presenter.saveUserData();
             Toast.makeText(getApplicationContext(), "Profile updated", Toast.LENGTH_SHORT).show();
             this.finish();
@@ -120,6 +118,9 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
     private boolean validate_input(String password, String password2) {
         if (!password.equals(password2)) {
             passwrd2IL.setError("Passwords don't match");
+            return false;
+        } else if (password.length() > 0 && password.length() < 4) {
+            passwrdIL.setError("Password must be at least 4 characters long");
             return false;
         }
         return true;

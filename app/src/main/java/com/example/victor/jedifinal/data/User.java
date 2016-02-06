@@ -81,6 +81,10 @@ public class User {
     }
 
     public void setHometown(String hometown) {
-        this.hometown = hometown;
+        if (hometown.length() == 0) {
+            this.hometown = null;
+        } else {
+            this.hometown = hometown;
+        }
     }
 }
