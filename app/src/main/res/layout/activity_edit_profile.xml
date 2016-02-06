@@ -1,105 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.victor.jedifinal.profile.ProfileActivity"
-    android:weightSum="3">
+    android:weightSum="3"
+    tools:context="com.example.victor.jedifinal.profile.ProfileActivity">
 
     <ImageView
+        android:id="@+id/edit_profile_imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/edit_profile_imageView"
         android:layout_gravity="center_horizontal"
         android:layout_weight="2" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/edit_profile_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edit_profile_passwd_wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_profile_passwd_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/profile_username"
-                    android:id="@+id/edit_profile_textView2" />
+                android:layout_weight="1"
+                android:hint="@string/edit_profile_new_password"
+                android:text="passwd"
+                android:inputType="textPassword" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edit_profile_username"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginStart="27dp" />
-            </LinearLayout>
+        </android.support.design.widget.TextInputLayout>
 
-        </RelativeLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edit_profile_repasswd_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <RelativeLayout
+            <EditText
+                android:id="@+id/edit_profile_repasswd_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/edit_profile_repeat_password"
+                android:text="passwd"
+                android:inputType="textPassword" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edit_profile_hometown_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_profile_hometown_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/edit_profile_hometown"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:text="@string/edit_profile_birthday"
+            android:gravity="start"
+            android:paddingStart="4sp"
+            android:paddingEnd="4sp"
+            android:textSize="12sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/profile_home_town"
-                    android:id="@+id/edit_textView2" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edit_profile_home_town"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginStart="27dp" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <DatePicker
+            android:id="@+id/edit_profile_birthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" >
+            android:calendarViewShown="false" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/profile_birthday"
-                    android:id="@+id/edit_textView3" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edit_profile_birthday"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginStart="27dp" />
-            </LinearLayout>
-
-        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

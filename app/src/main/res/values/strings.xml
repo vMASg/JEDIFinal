@@ -11,4 +11,8 @@
     <string name="profile_menu_edit">Edit</string>
     <string name="edit_profile_accept">Accept</string>
     <string name="edit_profile_cancel">Cancel</string>
+    <string name="edit_profile_repeat_password">Repeat password</string>
+    <string name="edit_profile_hometown">Hometown</string>
+    <string name="edit_profile_birthday">Birthday</string>
+    <string name="edit_profile_new_password">New password</string>
 </resources>

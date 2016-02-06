@@ -22,18 +22,27 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void setCurrentUser(String id) {
         currentUser = usersServiceAPI.findUser(id);
         view.showUserName(currentUser.getUserName());
+
         String profileLocation = currentUser.getUserProfilePictureLocation();
+        String hometown = currentUser.getHometown();
+        int birthdayDay = currentUser.getBirthdayDay();
+
         if (profileLocation == null) {
             view.showDefaultProfileImage();
         } else {
             view.showUserProfileImage(profileLocation);
         }
-        view.showHomeTown(currentUser.getHometown());
-        view.showBirthday(
-                currentUser.getBirthdayDay(),
-                currentUser.getBirthdayMonth(),
-                currentUser.getBirthdayYear()
-        );
+
+        if (hometown != null) {
+            view.showHomeTown(hometown);
+        }
+        if (birthdayDay > 0) {
+            view.showBirthday(
+                    birthdayDay,
+                    currentUser.getBirthdayMonth(),
+                    currentUser.getBirthdayYear()
+            );
+        }
     }
 
     @Override

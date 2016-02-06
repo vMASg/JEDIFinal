@@ -1,12 +1,15 @@
 package com.example.victor.jedifinal.profile;
 
 import android.content.SharedPreferences;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.victor.jedifinal.Injector;
 import com.example.victor.jedifinal.R;
@@ -15,9 +18,9 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
 
     private ImageView profilePicture;
     private ProfileContract.Presenter presenter;
-    private EditText usernameTv;
-    private EditText hometownTv;
-    private EditText birthdayTv;
+    private TextInputLayout passwrdIL, passwrd2IL, hometownIL;
+    private TextView usernameTv;
+    private DatePicker birthdayDP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,12 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
 
         profilePicture = (ImageView) findViewById(R.id.edit_profile_imageView);
 
-        usernameTv = (EditText) findViewById(R.id.edit_profile_username);
-        hometownTv = (EditText) findViewById(R.id.edit_profile_home_town);
-        birthdayTv = (EditText) findViewById(R.id.edit_profile_birthday);
+        passwrdIL  = (TextInputLayout) findViewById(R.id.edit_profile_passwd_wrapper);
+        passwrd2IL = (TextInputLayout) findViewById(R.id.edit_profile_repasswd_wrapper);
+        hometownIL = (TextInputLayout) findViewById(R.id.edit_profile_hometown_wrapper);
+//        birthdayIL = (TextInputLayout) findViewById(R.id.edit_profile_birthday_wrapper);
+        birthdayDP = (DatePicker) findViewById(R.id.edit_profile_birthday);
+        usernameTv = (TextView) findViewById(R.id.edit_profile_username);
 
         SharedPreferences settings = getSharedPreferences("userActive", 0);
         presenter.setCurrentUser(settings.getString("username", ""));
@@ -76,11 +82,12 @@ public class EditProfileActivity extends AppCompatActivity implements ProfileCon
 
     @Override
     public void showHomeTown(String hometown) {
-        hometownTv.setText(hometown);
+        hometownIL.getEditText().setText(hometown);
     }
 
     @Override
     public void showBirthday(int day, int month, int year) {
-        birthdayTv.setText(String.format("%d-%d-%d", day, month, year));
+//        birthdayIL.getEditText().setText(String.format("%d-%d-%d", day, month, year));
+        birthdayDP.updateDate(year, month, day);
     }
 }
