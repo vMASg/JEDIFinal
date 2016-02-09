@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.victor.jedifinal.R;
 
-public class CalculatorActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity implements CalculatorContract.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
